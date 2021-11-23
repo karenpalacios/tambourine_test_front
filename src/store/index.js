@@ -32,7 +32,6 @@ export default new Vuex.Store({
           commit('setUserData', data)
         })
     },
-
     logout ({ commit }) {
       commit('clearUserData')
     }

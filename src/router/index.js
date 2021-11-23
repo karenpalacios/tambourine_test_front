@@ -39,32 +39,14 @@ const router = new VueRouter({
   routes
 })
 
-/* function isLoggedIn () {
-  return localStorage.getItem('auth')
-}
-
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.authOnly)) {
-    if (!isLoggedIn()) {
-      next({
-        path: '/login',
-        query: { redirect: to.fullPath }
-      })
-    } else {
-      next()
-    }
-  } else if (to.matched.some(record => record.meta.guestOnly)) {
-    if (isLoggedIn()) {
-      next({
-        path: '/dashboard',
-        query: { redirect: to.fullPath }
-      })
-    } else {
-      next()
-    }
-  } else {
-    next()
+  const loggedIn = localStorage.getItem('user')
+
+  if (to.matched.some(record => record.meta.authOnly) && !loggedIn) {
+    next('/')
+    return
   }
-}) */
+  next()
+})
 
 export default router
