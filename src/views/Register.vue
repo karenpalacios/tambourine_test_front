@@ -51,13 +51,15 @@
             {{ errors.password_confirmation[0] }}
           </span>
         </div>
-        <button
-          type='submit'
-          @click.prevent='register'
-          class='btn btn-primary btn-block'
-        >
-          Register
-        </button>
+        <div class="row justify-content-center my-3 px-3">
+          <button
+             type='submit'
+             @click.prevent='register'
+             class='btn btn-primary btn-block'
+          >
+           Register
+          </button>
+         </div>
       </div>
     </div>
   </div>
