@@ -80,8 +80,8 @@ export default {
   methods: {
     register () {
       Auth.register(this.form)
-        .then((data) => {
-          alert(data.message)
+        .then((response) => {
+          alert(response.data.message)
           this.$router.push({ name: 'Login' })
         })
         .catch(error => {
