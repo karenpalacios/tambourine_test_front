@@ -6,8 +6,8 @@
      </button>
    </div>
    <router-view/>
-    <div id="footer">
-      <router-link to="/">by Karen Palacios</router-link>
+    <div id="footer" class='mt-2+'>
+      <a target="_blank" href="https://www.linkedin.com/in/karen-palacios-105bb722/">by Karen Palacios</a>
     </div>
   </div>
 </template>
