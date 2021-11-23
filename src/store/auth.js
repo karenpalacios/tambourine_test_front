@@ -9,9 +9,6 @@ export default {
   },
 
   async login (form) {
-    const token = await Csrf.getCookie()
-    console.log(token)
-    form._token = token
     return Request.post('/login', form)
   },
 

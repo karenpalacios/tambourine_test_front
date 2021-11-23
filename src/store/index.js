@@ -25,24 +25,11 @@ export default new Vuex.Store({
   },
 
   actions: {
-    /* getCookie() {
-      let token = Cookie.get("XSRF-TOKEN");
-      if (token) {
-        return new Promise(resolve => {
-          resolve(token);
-        });
-      }
-
-      return Api.get("/csrf-cookie");
-  } */
-
     login ({ commit }, credentials) {
-      alert('hey')
       return axios
-        .get('/sanctum/csrf-cookie')
+        .post('/login', credentials)
         .then(({ data }) => {
-          console.log(data)
-          /* commit('setUserData', data) */
+          commit('setUserData', data)
         })
     },
 

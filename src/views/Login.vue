@@ -10,7 +10,7 @@
           <label for="email">Email address:</label>
           <input
             type="email"
-            v-model="form.email"
+            v-model="email"
             class="form-control"
             id="email"
           />
@@ -22,7 +22,7 @@
           <label for="password">Password:</label>
           <input
             type="password"
-            v-model="form.password"
+            v-model="password"
             class="form-control"
             id="password"
           />
@@ -35,36 +35,35 @@
           Login
         </button>
         </div>
-        <div class="row justify-content-center my-2"> <a href="#"><small class="text-muted">Forgot Password?</small></a> </div>
+        <div class="row justify-content-center my-2"><router-link to="/password-recovery">Forgot Password?</router-link></div>
+      </div>
+      <div class="bottom text-center mb-5">
+        <p href="#" class="sm-text mx-auto mb-3"><router-link to="/register">Create new account</router-link></p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Auth from '../store/auth'
 export default {
   data () {
     return {
-      form: {
-        email: '',
-        password: ''
-      },
+      email: '',
+      password: '',
       errors: []
     }
   },
   methods: {
     login () {
-      Auth.login(this.form)
+      this.$store
+        .dispatch('login', {
+          email: this.email,
+          password: this.password
+        })
         .then(() => {
-          console.log('yes')
-          this.$root.$emit('login', true)
-          localStorage.setItem('auth', 'true')
           this.$router.push({ name: 'Dashboard' })
         })
         .catch(error => {
-          console.log('no')
-          console.log(error)
           if (error.response.status === 422) {
             this.errors = error.response.data.errors
           }
