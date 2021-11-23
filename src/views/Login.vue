@@ -1,5 +1,5 @@
 <template>
-  <div class="home col-5 mx-auto py-5 mt-5">
+  <div class="home col-5 mx-auto py-5 mt-2">
     <div class="row justify-content-center px-3 mb-3">
         <img id="logo" class="img-thumbnail" src="https://media.glassdoor.com/sql/922389/tambourine-squarelogo-1495210428848.png">
     </div>
