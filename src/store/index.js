@@ -29,7 +29,7 @@ export default new Vuex.Store({
       return axios
         .post('/login', credentials)
         .then(({ data }) => {
-          commit('setUserData', data)
+          commit('setUserData', data.data)
         })
     },
     logout ({ commit }) {
