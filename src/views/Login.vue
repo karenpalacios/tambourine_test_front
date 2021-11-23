@@ -35,10 +35,9 @@
           Login
         </button>
         </div>
-        <div class="row justify-content-center my-2"><router-link to="/password-recovery">Forgot Password?</router-link></div>
       </div>
       <div class="bottom text-center mb-5">
-        <p href="#" class="sm-text mx-auto mb-3"><router-link to="/register">Create new account</router-link></p>
+        <p href="#" class="sm-text mx-auto mb-3"><router-link to="/register">Create a new account</router-link></p>
       </div>
     </div>
   </div>

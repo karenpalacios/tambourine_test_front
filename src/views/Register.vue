@@ -60,6 +60,9 @@
            Register
           </button>
          </div>
+         <div class="bottom text-center mb-5">
+           <p href="#" class="sm-text mx-auto mb-3"><router-link to="/">Already registered?</router-link></p>
+         </div>
       </div>
     </div>
   </div>
