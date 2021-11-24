@@ -11,7 +11,8 @@ const routes = [
   {
     path: '/',
     name: 'Login',
-    component: Login
+    component: Login,
+    meta: { guestOnly: true }
   },
   {
     path: '/register',
@@ -44,6 +45,10 @@ router.beforeEach((to, from, next) => {
 
   if (to.matched.some(record => record.meta.authOnly) && !loggedIn) {
     next('/')
+    return
+  }
+  if (to.matched.some(record => record.meta.guestOnly) && loggedIn) {
+    next('/dashboard')
     return
   }
   next()
