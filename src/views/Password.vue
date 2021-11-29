@@ -29,22 +29,20 @@
 </template>
 
 <script>
+import Auth from '../store/auth'
 export default {
   data () {
     return {
       email: '',
-      password: '',
       errors: []
     }
   },
   methods: {
     sendPasswordReset () {
-      this.$store
-        .dispatch('sendPasswordReset', {
-          email: this.email
-        })
-        .then(() => {
-          this.$router.push({ name: 'Dashboard' })
+      Auth.sendPasswordReset(this.email)
+        .then((response) => {
+          alert(response.data.message)
+          this.$router.push({ name: 'Login' })
         })
         .catch(error => {
           if (error.response.status === 422) {
