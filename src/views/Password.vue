@@ -10,7 +10,7 @@
           <label for="email">Email address:</label>
           <input
             type="email"
-            v-model="email"
+            v-model="form.email"
             class="form-control"
             id="email"
           />
@@ -33,13 +33,15 @@ import Auth from '../store/auth'
 export default {
   data () {
     return {
-      email: '',
+      form: {
+        email: ''
+      },
       errors: []
     }
   },
   methods: {
     sendPasswordReset () {
-      Auth.sendPasswordReset(this.email)
+      Auth.sendPasswordReset(this.form)
         .then((response) => {
           alert(response.data.message)
           this.$router.push({ name: 'Login' })
